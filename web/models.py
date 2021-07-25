@@ -6,5 +6,7 @@ from django.contrib.auth.models import User
 class expense(models.Model):
     text=models.CharField(max_length=255)
     date = models.DateTimeField()
-    amoubt =models.BigIntegerField()
+    amount =models.BigIntegerField()
     user = models.ForeignKey(User,on_delete=models.CASCADE)
+    def __unicode__(self):
+        return '{} - {}'.format(self.date,self.amount)
